@@ -1,9 +1,97 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#193b2a"><title>Bow Hunter Trainer</title><link rel="manifest" href="manifest.webmanifest"><style>
-:root{--bg:#f5f7f5;--card:#fff;--ink:#14231a;--muted:#6b7a70;--green:#193b2a;--green2:#315f45;--line:#dce5df;--soft:#eaf2ed;--good:#2d7a4b;--danger:#a53a3a}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Arial,sans-serif;background:var(--bg);color:var(--ink)}header{background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;padding:calc(env(safe-area-inset-top) + 18px) 20px 20px;position:sticky;top:0;z-index:5;box-shadow:0 3px 18px rgba(0,0,0,.14)}header h1{margin:0;font-size:24px}header p{margin:5px 0 0;opacity:.85;font-size:13px}main{padding:16px 14px calc(95px + env(safe-area-inset-bottom));max-width:760px;margin:auto}.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}.tab{border:0;background:#e3ebe6;padding:11px 6px;border-radius:12px;font-weight:700;color:#365140}.tab.active{background:var(--green);color:#fff}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:12px;box-shadow:0 4px 14px rgba(20,40,28,.05)}.card h2,.card h3{margin:0 0 8px}.muted{color:var(--muted);font-size:13px}.exercise{padding:14px 0;border-top:1px solid var(--line)}.exercise:first-of-type{border-top:0}.ex-title{font-weight:800;font-size:16px}.goal{color:var(--muted);font-size:13px;margin-top:3px}.inputs{display:grid;grid-template-columns:1.15fr repeat(3,.85fr);gap:8px;margin-top:10px}.inputs.two{grid-template-columns:1fr 1fr}input,textarea{width:100%;border:1px solid #cad6ce;border-radius:11px;padding:11px 10px;font-size:16px;background:#fff;color:var(--ink)}label{font-size:11px;color:var(--muted);font-weight:700;display:block;margin-bottom:4px}.done-row{display:flex;justify-content:space-between;align-items:center;margin-top:10px}.done-btn{border:1px solid #bdd0c3;background:#edf4ef;color:#315f45;border-radius:11px;padding:10px 13px;font-weight:800}.done-btn.on{background:var(--good);color:#fff;border-color:var(--good)}.bigbtn{width:100%;border:0;background:var(--green);color:#fff;border-radius:14px;padding:14px;font-size:16px;font-weight:800;margin-top:8px}.secondary{background:#e4ece7;color:#244735}.danger{background:#f5e8e8;color:var(--danger)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stat{background:var(--soft);border-radius:14px;padding:12px;text-align:center}.stat strong{display:block;font-size:22px}.stat span{font-size:11px;color:var(--muted)}.nav{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);padding:8px 8px calc(8px + env(safe-area-inset-bottom));z-index:9}.nav button{border:0;background:transparent;padding:7px 2px;color:#6a786e;font-weight:700;font-size:11px}.nav button b{display:block;font-size:21px;margin-bottom:2px}.nav button.active{color:var(--green)}.section{display:none}.section.active{display:block}.week-list{display:grid;gap:8px}.week-item{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px}.pill{font-size:11px;border-radius:999px;padding:5px 9px;background:#e6eee8;color:#315f45;font-weight:800}.progressbar{height:10px;background:#dfe7e2;border-radius:999px;overflow:hidden;margin-top:10px}.progressbar i{display:block;height:100%;background:var(--good);width:0}.small{font-size:12px}.notice{background:#fff8df;border:1px solid #f0e0a1;border-radius:14px;padding:12px;font-size:13px;margin-bottom:12px}.history-row{padding:10px 0;border-top:1px solid var(--line)}.history-row:first-child{border-top:0}.hidden{display:none!important}
-</style></head><body><header><h1>🏹 Bow Hunter Trainer</h1><p>Strength • pack endurance • draw control</p></header><main>
-<section id="today" class="section active"><div class="card"><h2>This Week</h2><div class="stats"><div class="stat"><strong id="doneCount">0</strong><span>workouts done</span></div><div class="stat"><strong id="exerciseCount">0</strong><span>exercises logged</span></div><div class="stat"><strong id="streakCount">0</strong><span>day streak</span></div></div><div class="progressbar"><i id="weekProgress"></i></div></div><div class="tabs" id="dayTabs"></div><div id="workoutArea"></div></section>
-<section id="week" class="section"><div class="card"><h2>Weekly Plan</h2><div class="week-list"><div class="week-item"><div><b>Monday</b><div class="muted">Legs + Pack Strength</div></div><span class="pill">Train</span></div><div class="week-item"><div><b>Tuesday</b><div class="muted">Bow Strength + Shoulders</div></div><span class="pill">Train</span></div><div class="week-item"><div><b>Wednesday</b><div class="muted">Rest / walking</div></div><span class="pill">Recover</span></div><div class="week-item"><div><b>Thursday</b><div class="muted">Legs + Mountain Conditioning</div></div><span class="pill">Train</span></div><div class="week-item"><div><b>Friday</b><div class="muted">Rest / walking</div></div><span class="pill">Recover</span></div><div class="week-item"><div><b>Saturday</b><div class="muted">Hunting Conditioning</div></div><span class="pill">Train</span></div><div class="week-item"><div><b>Sunday</b><div class="muted">Recovery</div></div><span class="pill">Recover</span></div></div></div></section>
-<section id="progress" class="section"><div class="card"><h2>Progress</h2><p class="muted">Save a weekly snapshot to see your hunting fitness improve.</p><div class="inputs two"><div><label>Body weight (lb)</label><input id="pWeight" inputmode="decimal"></div><div><label>Ruck pack (lb)</label><input id="pRuck" inputmode="decimal"></div><div><label>Ruck time (min)</label><input id="pRuckTime" inputmode="numeric"></div><div><label>Treadmill incline (%)</label><input id="pIncline" inputmode="decimal"></div><div><label>Bow hold (sec)</label><input id="pHold" inputmode="decimal"></div><div><label>Controlled draws</label><input id="pDraws" inputmode="numeric"></div></div><label style="margin-top:10px">Recovery / notes</label><textarea id="pNotes" rows="3"></textarea><button class="bigbtn" onclick="saveProgress()">Save Weekly Check-In</button></div><div class="card"><h3>Check-In History</h3><div id="progressHistory" class="muted">No check-ins yet.</div></div></section>
-<section id="data" class="section"><div class="card"><h2>Your Data</h2><p class="muted">Everything is stored on this device. Export a backup any time.</p><button class="bigbtn secondary" onclick="exportData()">Export Backup</button><input id="importFile" type="file" accept=".json,application/json" class="hidden" onchange="importData(event)"><button class="bigbtn secondary" onclick="document.getElementById('importFile').click()">Import Backup</button><button class="bigbtn danger" onclick="resetWeek()">Reset This Week</button><button class="bigbtn danger" onclick="eraseAll()">Erase All App Data</button></div><div class="notice">After hosting, open in Safari and use <b>Share → Add to Home Screen</b> for an app icon.</div></section>
-</main><nav class="nav"><button class="active" onclick="showSection('today',this)"><b>🏹</b>Workout</button><button onclick="showSection('week',this)"><b>📅</b>Week</button><button onclick="showSection('progress',this)"><b>📈</b>Progress</button><button onclick="showSection('data',this)"><b>⚙️</b>Data</button></nav>
-<script>const WORKOUTS={"Monday": {"title": "Legs + Pack Strength", "exercises": [["Goblet Squat", "3 \u00d7 10", "weight"], ["Dumbbell Romanian Deadlift", "3 \u00d7 10", "weight"], ["Step-Ups", "3 \u00d7 10 / leg", "weight"], ["Walking Lunges", "2 \u00d7 10 / leg", "weight"], ["Standing Calf Raises", "3 \u00d7 15", "weight"], ["Farmer's Carry", "3 \u00d7 40 yd", "weight"]]}, "Tuesday": {"title": "Bow Strength + Shoulders", "exercises": [["Lat Pulldown", "3 \u00d7 10", "weight"], ["Seated Cable Row", "3 \u00d7 10", "weight"], ["Face Pull", "3 \u00d7 15", "weight"], ["Single-Arm Cable Row", "3 \u00d7 10 / arm", "weight"], ["Cable/Band External Rotation", "2 \u00d7 15 / arm", "weight"], ["Pallof Press", "3 \u00d7 10 / side", "weight"], ["Controlled Bow Draws", "8\u201312 draws \u2022 hold 5\u201310 sec", "time"]]}, "Thursday": {"title": "Legs + Mountain Conditioning", "exercises": [["Leg Press", "3 \u00d7 10", "weight"], ["Bulgarian Split Squat", "3 \u00d7 8 / leg", "weight"], ["Hip Thrust", "3 \u00d7 10", "weight"], ["Step-Ups", "3 \u00d7 12 / leg", "weight"], ["Plank", "3 \u00d7 30\u201345 sec", "time"], ["Incline Treadmill", "15\u201320 min \u2022 start 5\u20138%", "time"]]}, "Saturday": {"title": "Hunting Conditioning", "exercises": [["Ruck Walk / Hike", "30\u201345 min \u2022 start 10\u201315 lb", "time"], ["Circuit Step-Ups", "3 rounds \u00d7 10 / leg", "weight"], ["KB/DB Deadlift", "3 rounds \u00d7 10", "weight"], ["Farmer's Carry", "3 rounds \u00d7 40 yd", "weight"], ["Plank", "3 rounds \u00d7 30 sec", "time"], ["Controlled Bow Draws", "8\u201312 after circuit", "time"]]}};const DAYS=Object.keys(WORKOUTS),STORE_KEY='bowHunterTrainer_v1';let app=loadApp(),activeDay=getSuggestedDay();function blankApp(){return{logs:{},history:[],progress:[]}}function loadApp(){try{return JSON.parse(localStorage.getItem(STORE_KEY))||blankApp()}catch(e){return blankApp()}}function saveApp(){localStorage.setItem(STORE_KEY,JSON.stringify(app));updateStats()}function weekKey(d=new Date()){const x=new Date(d);x.setHours(0,0,0,0);const day=(x.getDay()+6)%7;x.setDate(x.getDate()-day);return x.toISOString().slice(0,10)}function getSuggestedDay(){const n=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],t=n[new Date().getDay()];return DAYS.includes(t)?t:'Monday'}function dayLog(day){const wk=weekKey();app.logs[wk]||={};app.logs[wk][day]||={exercises:{},completed:false,note:''};return app.logs[wk][day]}function renderTabs(){dayTabs.innerHTML=DAYS.map(d=>`<button class="tab ${d===activeDay?'active':''}" onclick="setDay('${d}')">${d.slice(0,3)}</button>`).join('')}function setDay(d){activeDay=d;renderTabs();renderWorkout()}function renderWorkout(){const info=WORKOUTS[activeDay],log=dayLog(activeDay);workoutArea.innerHTML=`<div class="card"><h2>${activeDay}</h2><div class="muted">${info.title}</div>${info.exercises.map((ex,i)=>renderExercise(ex,i,log)).join('')}<label>Workout notes</label><textarea rows="3" oninput="setNote(this.value)">${esc(log.note||'')}</textarea><button class="bigbtn ${log.completed?'secondary':''}" onclick="completeWorkout()">${log.completed?'✓ Workout Complete':'Finish Workout'}</button></div>`}function renderExercise(ex,i,log){const e=log.exercises[i]||{};return`<div class="exercise"><div class="ex-title">${ex[0]}</div><div class="goal">${ex[1]}</div><div class="inputs"><div><label>${ex[2]==='time'?'Load / Time':'Weight'}</label><input value="${esc(e.load||'')}" oninput="setEx(${i},'load',this.value)"></div><div><label>Set 1</label><input value="${esc(e.s1||'')}" inputmode="numeric" oninput="setEx(${i},'s1',this.value)"></div><div><label>Set 2</label><input value="${esc(e.s2||'')}" inputmode="numeric" oninput="setEx(${i},'s2',this.value)"></div><div><label>Set 3</label><input value="${esc(e.s3||'')}" inputmode="numeric" oninput="setEx(${i},'s3',this.value)"></div></div><div class="done-row"><span class="small muted">${e.done?'Logged':'Tap when finished'}</span><button class="done-btn ${e.done?'on':''}" onclick="toggleEx(${i})">${e.done?'✓ Done':'Done'}</button></div></div>`}function setEx(i,k,v){const l=dayLog(activeDay);l.exercises[i]||={};l.exercises[i][k]=v;saveApp()}function toggleEx(i){const l=dayLog(activeDay);l.exercises[i]||={};l.exercises[i].done=!l.exercises[i].done;saveApp();renderWorkout()}function setNote(v){dayLog(activeDay).note=v;saveApp()}function completeWorkout(){const l=dayLog(activeDay);l.completed=!l.completed;if(l.completed)app.history.push({date:new Date().toISOString(),day:activeDay,week:weekKey()});saveApp();renderWorkout()}function updateStats(){const wk=app.logs[weekKey()]||{};const done=DAYS.filter(d=>wk[d]?.completed).length;let ex=0;DAYS.forEach(d=>Object.values(wk[d]?.exercises||{}).forEach(v=>{if(v.done)ex++}));doneCount.textContent=done;exerciseCount.textContent=ex;weekProgress.style.width=(done/DAYS.length*100)+'%';streakCount.textContent=calcStreak()}function calcStreak(){const ds=[...new Set(app.history.map(h=>h.date.slice(0,10)))].sort().reverse();if(!ds.length)return 0;let s=1,c=new Date(ds[0]+'T12:00:00');for(let i=1;i<ds.length;i++){const p=new Date(ds[i]+'T12:00:00'),diff=Math.round((c-p)/86400000);if(diff===1){s++;c=p}else break}return s}function saveProgress(){const g=id=>document.getElementById(id).value.trim();app.progress.unshift({date:new Date().toISOString(),weight:g('pWeight'),ruck:g('pRuck'),ruckTime:g('pRuckTime'),incline:g('pIncline'),hold:g('pHold'),draws:g('pDraws'),notes:g('pNotes')});saveApp();['pWeight','pRuck','pRuckTime','pIncline','pHold','pDraws','pNotes'].forEach(id=>document.getElementById(id).value='');renderProgress()}function renderProgress(){if(!app.progress.length){progressHistory.innerHTML='No check-ins yet.';return}progressHistory.innerHTML=app.progress.slice(0,12).map(p=>`<div class="history-row"><b>${new Date(p.date).toLocaleDateString()}</b><div class="small">Weight: ${p.weight||'—'} lb • Ruck: ${p.ruck||'—'} lb / ${p.ruckTime||'—'} min • Incline: ${p.incline||'—'}% • Bow hold: ${p.hold||'—'} sec • Draws: ${p.draws||'—'}</div>${p.notes?`<div class="muted small">${esc(p.notes)}</div>`:''}</div>`).join('')}function exportData(){const b=new Blob([JSON.stringify(app,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='bow-hunter-trainer-backup.json';a.click();URL.revokeObjectURL(a.href)}function importData(ev){const f=ev.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{app=JSON.parse(r.result);saveApp();renderAll();alert('Backup imported.')}catch(e){alert('That backup could not be read.')}};r.readAsText(f)}function resetWeek(){if(confirm("Reset this week's workout entries?")){delete app.logs[weekKey()];saveApp();renderAll()}}function eraseAll(){if(confirm('Erase all workout and progress data from this device?')){app=blankApp();saveApp();renderAll()}}function showSection(id,btn){document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));btn.classList.add('active');if(id==='progress')renderProgress()}function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}function renderAll(){renderTabs();renderWorkout();updateStats();renderProgress()}renderAll();if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>Bow Hunter Trainer</title>
+
+  <meta name="theme-color" content="#193b2a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Bow Hunter">
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>🏹 Bow Hunter Trainer</h1>
+    <p>Strength • Pack Endurance • Bow Performance</p>
+  </header>
+
+  <main>
+
+    <section id="today" class="section active">
+      <div class="card">
+        <h2>Today's Training</h2>
+        <div id="todayWorkout"></div>
+      </div>
+    </section>
+
+    <section id="week" class="section">
+      <div class="card">
+        <h2>Weekly Plan</h2>
+        <div id="weekList"></div>
+      </div>
+    </section>
+
+    <section id="progress" class="section">
+      <div class="card">
+        <h2>Progress</h2>
+        <p class="muted">Track your workouts, body weight and personal records.</p>
+        <div id="progressContent"></div>
+      </div>
+    </section>
+
+    <section id="data" class="section">
+      <div class="card">
+        <h2>Your Data</h2>
+        <p class="muted">Your training information is saved on this device.</p>
+        <div id="dataContent"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <nav class="nav">
+    <button class="active" onclick="showSection('today', this)">
+      <b>🏹</b>
+      Today
+    </button>
+
+    <button onclick="showSection('week', this)">
+      <b>📅</b>
+      Week
+    </button>
+
+    <button onclick="showSection('progress', this)">
+      <b>📈</b>
+      Progress
+    </button>
+
+    <button onclick="showSection('data', this)">
+      <b>⚙️</b>
+      Data
+    </button>
+  </nav>
+
+  <!-- Workout definitions load first -->
+  <script src="workouts.js"></script>
+
+  <!-- Main application loads second -->
+  <script src="app.js"></script>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js");
+      });
+    }
+  </script>
+
+</body>
+</html>
